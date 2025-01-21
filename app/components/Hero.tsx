@@ -14,7 +14,8 @@ const Hero:React.FC<HeroProps> = ({text}) => {
     return ( 
         <motion.div   
         className="flex justify-center items-center h-[80px] gap-4 hero">      
-        <motion.div 
+        <motion.div
+        style={{borderRadius: 100}} 
         animate={{translateY:[-200,0] }}
         whileTap={{rotateY: 360}}
         transition={{ 
@@ -25,14 +26,14 @@ const Hero:React.FC<HeroProps> = ({text}) => {
             type: "spring"         
         }}
 
-        className="h-[100] w-[100] flex flex-row justify-center items-center overflow-hidden">
+        className="h-[100px] w-[100px] flex flex-row justify-center items-center overflow-hidden rounded-full">
             <Image 
-            className="overflow-hidden h-[100] w-[100] object-cover rounded-full" 
+            className="overflow-hidden h-full w-full object-cover rounded-full" 
             objectFit="cover" 
             src="/egyletLogo.jpg" 
             quality={100}
             alt="placeholder" 
-            width={100} 
+            width={100}  
             height={100}
              
             /> 

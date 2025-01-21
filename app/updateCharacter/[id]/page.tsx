@@ -51,7 +51,7 @@ const CreateCharacterPage = () => {
     const [characterRace, setCharacterRace] = useState<string>("");
     const [characterAdditionInfo, setCharacterAdditionInfo] = useState<string>("");
     const [characterImage, setCharacterImage] = useState<string>("");
-    const [characterImagePreview, setCharacterImagePreview] = useState<string>("https://pics.craiyon.com/2024-09-14/7JN82izCQ8KkGotJ9diblw.webp");
+    const [characterImagePreview, setCharacterImagePreview] = useState<string>("");
 
     const fileInputRef = useRef<HTMLInputElement>(null);
 
