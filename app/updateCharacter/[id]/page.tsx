@@ -24,7 +24,7 @@ const CreateCharacterPage = () => {
                         console.log("no id")
                         return { characterName: "", characterImage: "", _id: "", characterClass: "", characterRace: "", characterAdditionInfo: "" } as Character 
                     }
-                   const res = await axios.get(`http://localhost:5000/api/getNpcData/${_id}`)
+                   const res = await axios.get(`${process.env.NEXT_BASE_URL}getNpcData/${_id}`)
                    console.log(res.data)
                    return res.data
                 } catch (error) {
