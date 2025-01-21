@@ -1,6 +1,6 @@
 import { Character } from "./interfaces";
 
-const url:string = "http://localhost:5000/api/getNpcData/"
+const url:string = process.env.NEXT_BASE_URL+"/getNpcData/"
 
 export const getCharacterInfo = async (id:string): Promise<Character> => {
     try {
