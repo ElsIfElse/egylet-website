@@ -2,6 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
+h1,h2,h3,h4,link,p,label,input,textarea{
+  @apply text-black
+}
+
+h1{
+  @apply text-4xl tracking-tight
+}
+h2{
+  @apply text-2xl
+}
+h3{
+  @apply text-base  
+}
+p{
+  @apply text-sm
+}
+
+input,textarea{
+  @apply 
+  px-2 py-1 rounded-md max-w-[412px] outline-none shadow-xl overflow-hidden
+  hover:opacity-70
+  focus:scale-[102%]
+  transition-all duration-200
+  xl:min-w-[412px]
+}
+
+label{
+  @apply text-xs uppercase
+}
+button{
+  @apply 
+  cursor-pointer w-auto rounded-lg flex flex-row justify-center gap-6 p-3 bg-[#3e4d39] bg-opacity-100  self-center shadow-md text-[#7f8430]
+  hover:shadow-lg hover:bg-opacity-95 hover:-translate-y-1 hover:-rotate-1
+  transition-all duration-200
+}
+.link{
+  @apply hover:text-opacity-60 transition-all duration-200 hover:-translate-y-[1px] py-1 px-2
+}
+
+.hero{
+  @apply mb-12
+}
+
+
+
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

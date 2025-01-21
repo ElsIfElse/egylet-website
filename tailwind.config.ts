@@ -12,6 +12,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        sourceCodePro: "var(--font-smooch-sans)",
+      },
     },
   },
   plugins: [],
