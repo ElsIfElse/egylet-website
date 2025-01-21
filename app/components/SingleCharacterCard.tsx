@@ -1,10 +1,10 @@
 'use client'
 
+import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import {motion} from "motion/react"
 import { revalidatePath } from "next/cache";
-import { deleteCharacterServer } from "../utils/deleteFunction";
 
 interface CharacterCardProps {
     characterName:string,
@@ -20,7 +20,8 @@ const SingleCharacterCard:React.FC<CharacterCardProps> = ({characterName, charac
 
     const deleteCharacter = async (name:string) => {
         console.log(process.env.NEXT_PUBLIC_BASE_URL)
-        deleteCharacterServer(name)
+        const res = await axios.delete(`${process.env.NEXT_PUBLIC_BASE_URL}deleteCharacter/${name}`);
+        console.log(res)
         revalidatePath("/")
         router.push("/deleted")
         setTimeout(() => {
