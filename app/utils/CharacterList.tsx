@@ -1,6 +1,9 @@
 import CharacterCard from "../components/CharacterCard";
 import { Character } from "./interfaces";
 
+export const dynamicParams = true;
+
+
 const fetchCharacterList = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}getAllNpc`);
     const data = await res.json();
@@ -21,7 +24,12 @@ const delayNum:number = 0
             {list.map((character:Character,index) => (
                 <div key={character._id}>
                     {delayNum+0.2}
-                    <CharacterCard characterName={character.characterName} characterImage={character.characterImage} characterClass={character.characterClass} characterRace={character.characterRace} delayNumber={index}/>
+                    <CharacterCard 
+                    characterName={character.characterName} 
+                    characterImage={character.characterImage} 
+                    characterClass={character.characterClass} 
+                    characterRace={character.characterRace} 
+                    delayNumber={index}/>
                 </div>
             ))}
        </>
