@@ -1,6 +1,5 @@
 import CharacterCard from "../components/CharacterCard";
 import { Character } from "./interfaces";
-
 export const dynamicParams = true;
 
 
@@ -16,7 +15,7 @@ const fetchCharacterList = async () => {
 const CharacterList = async() => {
 
 const delayNum:number = 0
-    
+
     const list:Character[] = await fetchCharacterList();
 
     return ( 

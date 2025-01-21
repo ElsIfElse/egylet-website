@@ -4,6 +4,7 @@ import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import {motion} from "motion/react"
+import { revalidatePath } from "next/cache";
 
 interface CharacterCardProps {
     characterName:string,
@@ -21,10 +22,10 @@ const SingleCharacterCard:React.FC<CharacterCardProps> = ({characterName, charac
         console.log(process.env.NEXT_PUBLIC_BASE_URL)
         const res = await axios.delete(`${process.env.NEXT_PUBLIC_BASE_URL}deleteCharacter/${name}`);
         console.log(res)
-        await router.prefetch("/");
         router.push("/deleted")
+        revalidatePath("/")
         setTimeout(() => {
-            router.push("/")
+            router.push("/",)
         },2000)
     }
     const updateCharacter = async (name:string) => {
