@@ -1,28 +1,30 @@
-
+'use client'
 
 import CharacterCard from "../components/CharacterCard";
 import { Character } from "./interfaces";
-export const dynamicParams = true;
+// export const dynamicParams = true;
 
-
-const fetchCharacterList = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}getAllNpc`);
-    const data = await res.json();
-    console.log(data);
-    return data
+interface CharacterListProps {
+    characters: Character[]
 }
 
+// const fetchCharacterList = async () => {
+//     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}getAllNpc`);
+//     const data = await res.json();
+//     console.log(data);
+//     return data
+// }
 
 
-const CharacterList = async() => {
+
+const CharacterList:React.FC<CharacterListProps> = ({characters}) => {
 
 const delayNum:number = 0
 
-    const list:Character[] = await fetchCharacterList();
 
     return ( 
        <>
-            {list.map((character:Character,index) => (
+            {characters.map((character:Character,index) => (
                 <div key={character._id}>
                     {delayNum+0.2}
                     <CharacterCard 
