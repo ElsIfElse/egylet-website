@@ -1,7 +1,7 @@
 import CharacterList from "./utils/CharacterList";
 import Hero from "./components/Hero";
 
-
+export const revalidate = 0;
 export default function Home() {
 
   return (
