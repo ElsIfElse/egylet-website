@@ -18,8 +18,8 @@ const SingleCharacterCard:React.FC<CharacterCardProps> = ({characterName, charac
     const router = useRouter();
 
     const deleteCharacter = async (name:string) => {
-        console.log(process.env.NEXT_BASE_URL)
-        const res = await axios.delete(`${process.env.NEXT_BASE_URL}deleteCharacter/${name}`);
+        console.log(process.env.NEXT_PUBLIC_BASE_URL)
+        const res = await axios.delete(`${process.env.NEXT_PUBLIC_BASE_URL}deleteCharacter/${name}`);
         console.log(res)
         router.push("/deleted")
         setTimeout(() => {

@@ -24,7 +24,7 @@ const CreateCharacterPage = () => {
                         console.log("no id")
                         return { characterName: "", characterImage: "", _id: "", characterClass: "", characterRace: "", characterAdditionInfo: "" } as Character 
                     }
-                   const res = await axios.get(`${process.env.NEXT_BASE_URL}getNpcData/${_id}`)
+                   const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}getNpcData/${_id}`)
                    console.log(res.data)
                    return res.data
                 } catch (error) {
@@ -72,7 +72,7 @@ const CreateCharacterPage = () => {
     const router = useRouter();
     const sendDataToServer = async function(){
         try {
-            const res = await axios.put(`${process.env.NEXT_BASE_URL}updateCharacter`, payload)
+            const res = await axios.put(`${process.env.NEXT_PUBLIC_BASE_URL}updateCharacter`, payload)
             router.push("/updated")
             console.log(res.data)
             setTimeout(() => {
