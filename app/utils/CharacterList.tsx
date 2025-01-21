@@ -1,4 +1,3 @@
-
 import CharacterCard from "../components/CharacterCard";
 import { Character } from "./interfaces";
 

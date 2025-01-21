@@ -1,3 +1,5 @@
+'use client'
+
 import CharacterList from "./utils/CharacterList";
 import Hero from "./components/Hero";
 
