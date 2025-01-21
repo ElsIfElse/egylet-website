@@ -18,7 +18,7 @@ const SingleCharacterCard:React.FC<CharacterCardProps> = ({characterName, charac
     const router = useRouter();
 
     const deleteCharacter = async (name:string) => {
-        const res = await axios.delete(`http://localhost:5000/api/deleteCharacter/${name}`);
+        const res = await axios.delete(`${process.env.NEXT_BASE_URL}deleteCharacter/${name}`);
         console.log(res)
         router.push("/deleted")
         setTimeout(() => {
@@ -67,7 +67,7 @@ const SingleCharacterCard:React.FC<CharacterCardProps> = ({characterName, charac
             className="flex flex-col gap-4 justify-center items-start w-[400px]">
                 <h2 className="text-3xl hover:bg-blend-lighten">{characterName}</h2>
                     <div className="flex flex-col gap-8">
-                        <div className="flex flex-col">
+                        <div className="flex flex-col"> 
                             <h3>Character Faj: {characterRace}</h3>
                             <h3>Character Kaszt: {characterClass}</h3>
                         </div>

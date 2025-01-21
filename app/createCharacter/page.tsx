@@ -36,7 +36,7 @@ const CreateCharacterPage = () => {
     const router = useRouter();
     const sendDataToServer = async function(){
         try {
-            const res = await axios.post('http://localhost:5000/api/createCharacter', payload)
+            const res = await axios.post(`${process.env.NEXT_BASE_URL}api/createCharacter`, payload)
             router.push("/created")
             console.log(res)
             setTimeout(() => {

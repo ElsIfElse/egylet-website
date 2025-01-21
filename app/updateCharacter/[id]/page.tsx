@@ -72,7 +72,7 @@ const CreateCharacterPage = () => {
     const router = useRouter();
     const sendDataToServer = async function(){
         try {
-            const res = await axios.put('http://localhost:5000/api/updateCharacter', payload)
+            const res = await axios.put(`${process.env.NEXT_BASE_URL}updateCharacter`, payload)
             router.push("/updated")
             console.log(res.data)
             setTimeout(() => {

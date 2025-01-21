@@ -3,7 +3,7 @@ import CharacterCard from "../components/CharacterCard";
 import { Character } from "./interfaces";
 
 const fetchCharacterList = async () => {
-    const res = await fetch("http://localhost:5000/api/getAllNpc");
+    const res = await fetch(`${process.env.NEXT_BASE_URL}getAllNpc`);
     const data = await res.json();
     console.log(data);
     return data

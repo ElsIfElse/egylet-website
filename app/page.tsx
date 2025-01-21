@@ -1,7 +1,6 @@
 import CharacterList from "./utils/CharacterList";
 import Hero from "./components/Hero";
 
-
 export default function Home() {
   return (
     <div className="flex flex-col items-center py-12 max-w-[1920px] w-full  h-full overflow-hidden">
