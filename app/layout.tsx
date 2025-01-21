@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./components/Navbar";
-import { Source_Code_Pro } from 'next/font/google';
+// import { Source_Code_Pro } from 'next/font/google';
 
-const sourceCodePro = Source_Code_Pro({
-  subsets: ['latin'],
-  variable: '--font-smooch-sans',
-});
+// const sourceCodePro = Source_Code_Pro({
+//   subsets: ['latin'],
+//   variable: '--font-smooch-sans',
+// });
 
 
 export const metadata: Metadata = {
@@ -22,8 +22,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        style={{backgroundImage:"url(../../cardBack3.jpg)",backgroundRepeat: "repeat" }}
-        className={`${sourceCodePro.variable} font-sourceCodePro antialiased overflow-x-hidden flex flex-col items-center bg-cover`}
+        style={{backgroundImage:"url(../../cardBack3.jpg)",backgroundRepeat: "repeat" ,fontFamily:"SourcePro"}}
+        className={`font-sourcePro antialiased overflow-x-hidden flex flex-col items-center bg-cover`}
       >
         <Navbar/>
         {children}

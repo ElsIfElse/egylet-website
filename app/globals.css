@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'SourcePro';
+  src: 
+  url('/fonts/SourceCodePro-Black.ttf') format('truetype'),
+  url('/fonts/SourceCodePro-VariableFont_wght.ttf') format('truetype'),
+  url('/fonts/SourceCodePro-Regular.ttf') format('truetype'),
+  url('/fonts/SourceCodePro-Light.ttf') format('truetype'),
+  url('/fonts/SourceCodePro-Medium.ttf') format('truetype'),
+  url('/fonts/SourceCodePro-SemiBold.ttf') format('truetype');
+       
+  font-weight: normal;
+  font-style: normal;
+}
+body{
+  font-family: 'SourcePro';
+}
+
 h1,h2,h3,h4,link,p,label,input,textarea{
   @apply text-black
 }
