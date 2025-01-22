@@ -1,5 +1,6 @@
 'use client'
 
+
  import CharacterCard from "../components/CharacterCard";
 import { Character } from "./interfaces";
 
@@ -14,7 +15,7 @@ const delayNum:number = 0
 
     return ( 
        <>
-            {characters && typeof characters === "object" && characters.map((character:Character,index:number) => (
+            {characters && typeof characters === "object" && characters.length > 0 ?  characters.map((character:Character,index:number) => (
                 <div key={character._id}>
                     {delayNum+0.2}
                     <CharacterCard 
@@ -24,7 +25,7 @@ const delayNum:number = 0
                     characterRace={character.characterRace} 
                     delayNumber={index}/>
                 </div>
-            ))}
+            )):<h1 className="text-3xl self-center">Az adatbázis üres. Hozz létre egy karaktert!</h1>}
        </>
      );
 }
