@@ -8,7 +8,7 @@ const fetchCharacterList = async () => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}getAllNpc`,{
         // const res = await fetch(`https://egylet-server.fly.dev/api/getAllNpc`,{
         // next: { revalidate: 300 }
-        cache: "no-store"
+        cache: "force-cache"
         });  
 
         if(!res.ok){

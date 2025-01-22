@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import revalidateMainPage from "../utils/revalidateMain";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 
 
