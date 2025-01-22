@@ -8,6 +8,7 @@ import { Upload } from "lucide-react";
 import { motion } from "motion/react";
 import Hero from "../../components/Hero";
 import { useParams, useRouter } from "next/navigation";
+import sendUpdateDataToServer from "./sendUpdateDataToServer";
 
 export const dynamicParams = true;
 
@@ -41,6 +42,7 @@ const CreateCharacterPage = () => {
             setCharacterAdditionInfo(characterInfo.characterAdditionInfo)
             setCharacterImagePreview(characterInfo.characterImage)
             setCharacterImage(characterInfo.characterImage)
+            setCharacterId(characterInfo._id)
         }
         setAllInfo()
 
@@ -52,6 +54,7 @@ const CreateCharacterPage = () => {
     const [characterAdditionInfo, setCharacterAdditionInfo] = useState<string>("");
     const [characterImage, setCharacterImage] = useState<string>("");
     const [characterImagePreview, setCharacterImagePreview] = useState<string>("");
+    const [characterId, setCharacterId] = useState<string>("");
 
     const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -67,17 +70,15 @@ const CreateCharacterPage = () => {
         characterClass: characterClass,
         characterRace: characterRace,
         characterAdditionInfo: characterAdditionInfo,
-        characterImage: characterImage
+        characterImage: characterImage,
+        _id: characterId
     }
     const router = useRouter();
     const sendDataToServer = async function(){
         try {
-            const res = await axios.put(`${process.env.NEXT_PUBLIC_BASE_URL}updateCharacter`, payload)
+            const res = await sendUpdateDataToServer(payload)
             router.push("/updated")
-            console.log(res.data)
-            setTimeout(() => {
-                router.push("/"+payload.characterName)
-            },2000)
+            console.log(res)
             
         } catch (error) {
             console.log(error)
@@ -118,9 +119,10 @@ const CreateCharacterPage = () => {
 
     useEffect(() => {
         return () => { 
-          // Clean up the temporary URL when the component unmounts
-          URL.revokeObjectURL(characterImage);
-          console.log(typeof characterImage)
+            if(characterImage){
+                URL.revokeObjectURL(characterImage);
+                console.log(typeof characterImage)
+            }
         };
       }, [characterImage]);
 

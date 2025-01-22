@@ -1,30 +1,20 @@
 'use client'
 
-import CharacterCard from "../components/CharacterCard";
+ import CharacterCard from "../components/CharacterCard";
 import { Character } from "./interfaces";
-// export const dynamicParams = true;
 
 interface CharacterListProps {
-    characters: Character[]
+    characters:Character[] | string
 }
 
-// const fetchCharacterList = async () => {
-//     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}getAllNpc`);
-//     const data = await res.json();
-//     console.log(data);
-//     return data
-// }
-
-
-
-const CharacterList:React.FC<CharacterListProps> = ({characters}) => {
+const CharacterList:React.FC<CharacterListProps> =  ({characters}) => {
 
 const delayNum:number = 0
 
 
     return ( 
        <>
-            {characters.map((character:Character,index) => (
+            {characters && typeof characters === "object" && characters.map((character:Character,index:number) => (
                 <div key={character._id}>
                     {delayNum+0.2}
                     <CharacterCard 

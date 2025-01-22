@@ -1,3 +1,5 @@
+
+
 module.exports = {
   images: {
     remotePatterns: [
@@ -31,6 +33,12 @@ module.exports = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: "shutterstock.com",
+        port: '',
+        pathname: '/**',
+      }
       
     ],
   },

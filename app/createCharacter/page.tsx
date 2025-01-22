@@ -1,6 +1,5 @@
 'use client'
 
-import axios from "axios";
 import Image from "next/image";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { Character } from "../utils/interfaces";
@@ -8,6 +7,8 @@ import { Upload } from "lucide-react";
 import { motion } from "motion/react";
 import Hero from "../components/Hero";
 import { useRouter } from "next/navigation";
+import sendCreateDataToServer from "./sendDataToServer";
+
 
 const CreateCharacterPage = () => {
 
@@ -15,11 +16,10 @@ const CreateCharacterPage = () => {
     const [characterClass, setCharacterClass] = useState<string>("");
     const [characterRace, setCharacterRace] = useState<string>("");
     const [characterAdditionInfo, setCharacterAdditionInfo] = useState<string>("");
-    const [characterImage, setCharacterImage] = useState<string>("");
+    const [characterImage, setCharacterImage] = useState<string>("https://pics.craiyon.com/2024-09-14/7JN82izCQ8KkGotJ9diblw.webp");
     const [characterImagePreview, setCharacterImagePreview] = useState<string>("https://pics.craiyon.com/2024-09-14/7JN82izCQ8KkGotJ9diblw.webp");
 
     const fileInputRef = useRef<HTMLInputElement>(null);
-
     const clickingImageUpload = () => {
         if (fileInputRef.current) {
           fileInputRef.current.click();
@@ -31,18 +31,16 @@ const CreateCharacterPage = () => {
         characterClass: characterClass,
         characterRace: characterRace,
         characterAdditionInfo: characterAdditionInfo,
-        characterImage: characterImage
+        characterImage: characterImage,
+        _id: "213das21e"
     }
     const router = useRouter();
     const sendDataToServer = async function(){
+        
         try {
-            const res = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}createCharacter`, payload)
-            router.push("/created")
+            const res = await sendCreateDataToServer(payload)
             console.log(res)
-            setTimeout(() => {
-                router.push("/"+payload.characterName)
-            },2000)
-            
+            router.push("/created")    
         } catch (error) {
             console.log(error)
         }
@@ -54,6 +52,52 @@ const CreateCharacterPage = () => {
           reader.onload = () => {
             const base64String = reader.result as string;
             resolve(base64String);
+            const img: HTMLImageElement = document.createElement('img'); 
+            img.src = reader.result as string;
+
+            img.onload = () => {
+              const canvas = document.createElement("canvas");
+              const {width, height} = img;
+
+              let maxWidth = width;
+              let maxHeight = height;
+
+              const MAX_FILE_SIZE = 2*1024*1024;
+              let quality:number = 0.7;
+
+              const compress = () => {
+                canvas.width = maxWidth;
+                canvas.height = maxHeight;
+
+                const ctx = canvas.getContext("2d");
+                if(!ctx){
+                    reject(new Error("Could not get Canvas context"))
+                    return
+                }
+
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img,0,0,maxWidth,maxHeight);
+
+                const compressedBase64 = canvas.toDataURL("image/jpeg", quality);
+                const base64Size = Math.round(compressedBase64.length -22 )*3/4;
+
+                if(base64Size > MAX_FILE_SIZE && quality > 0.1){
+                    quality -= 0.1;
+                    compress();
+                }
+                else if(base64Size > MAX_FILE_SIZE){
+                    maxWidth *=0.9
+                    maxHeight *=0.9
+                    quality = 0.7;
+                    compress();
+                }
+                else{
+                    resolve(compressedBase64);
+                }
+              };
+              compress();
+            }
+            img.onerror = () => reject(new Error("Failed to load image"));
           };
           reader.onerror = () => reject(reader.error);
           reader.readAsDataURL(file);
@@ -76,17 +120,15 @@ const CreateCharacterPage = () => {
             } catch (error) {
                 console.log("Error while converting Image",error)
             }
-
         }
       };
 
-      
-
       useEffect(() => {
         return () => {
-          // Clean up the temporary URL when the component unmounts
-          URL.revokeObjectURL(characterImage);
-          console.log(typeof characterImage)
+          if(characterImage){
+            URL.revokeObjectURL(characterImage);
+            console.log(typeof characterImage)
+          }
         };
       }, [characterImage]);
 

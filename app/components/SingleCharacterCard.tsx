@@ -1,10 +1,9 @@
 'use client'
 
-import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import {motion} from "motion/react"
-import { revalidatePath } from "next/cache";
+import deleteCharacter from "./deleteCharacter";
 
 interface CharacterCardProps {
     characterName:string,
@@ -13,20 +12,20 @@ interface CharacterCardProps {
     characterClass:string
     characterRace:string
     characterAdditionInfo:string
+    characterId:string
 }
 
-const SingleCharacterCard:React.FC<CharacterCardProps> = ({characterName, characterImage, characterClass, characterRace,characterAdditionInfo}) => {
+const SingleCharacterCard:React.FC<CharacterCardProps> = ({characterId,characterName, characterImage, characterClass, characterRace,characterAdditionInfo}) => {
     const router = useRouter();
 
-    const deleteCharacter = async (name:string) => {
-        console.log(process.env.NEXT_PUBLIC_BASE_URL)
-        const res = await axios.delete(`${process.env.NEXT_PUBLIC_BASE_URL}deleteCharacter/${name}`);
-        console.log(res)
-        revalidatePath("/")
-        router.push("/deleted")
-        setTimeout(() => {
-            router.push("/")
-        },2000)
+    const deleteTheCharacter = async(id:string) => {
+        try {
+            const res = await deleteCharacter(id)
+            console.log(res)
+            router.push("/deleted")
+        } catch (error) {
+            console.log(error)
+        }
     }
     const updateCharacter = async (name:string) => {
         router.push("/updateCharacter/"+name)
@@ -89,7 +88,7 @@ const SingleCharacterCard:React.FC<CharacterCardProps> = ({characterName, charac
             <motion.button 
                 animate={{ opacity: [0, 0.3 ,1] }}
                 transition={{ duration: 0.6,delay:1 }}
-                onClick={() => deleteCharacter(characterName)}>Karakter Törlése
+                onClick={() => deleteTheCharacter(characterId)}>Karakter Törlése
             </motion.button>                        
                     </div>
         </motion.div>
