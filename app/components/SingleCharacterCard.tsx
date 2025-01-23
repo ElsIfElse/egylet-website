@@ -34,6 +34,11 @@ const SingleCharacterCard:React.FC<CharacterCardProps> = ({characterId,character
         }
     }
     const updateCharacter = async (name:string) => {
+        const isAdmin = localStorage.getItem('isAdmin')
+        if(!isAdmin){
+            alert("You are not admin")
+            return
+        }
         router.push("/updateCharacter/"+name)
     } 
 

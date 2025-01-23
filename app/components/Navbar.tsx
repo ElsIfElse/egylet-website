@@ -8,11 +8,13 @@ import revalidateMainPage from "../utils/revalidateMain";
 import { useUpdateRedirectState } from "../zustandStores/updateRedirectState";
 import { checkAdmin } from "../utils/CheckAdmin";
 
+
 const Navbar = () => {
 
     const [showAdminLogin,setShowAdminLogin] = useState(false)
     const isAdmin = useUpdateRedirectState((state) => state.isAdmin);
     const setIsAdmin = useUpdateRedirectState((state) => state.setIsadmin);
+
 
     const toggleAdminLogin = () => {
         setShowAdminLogin(!showAdminLogin)
@@ -25,7 +27,6 @@ const Navbar = () => {
         }
         
     },[setIsAdmin])
-
 
     return ( 
         <div className=" flex flex-row w-screen h-[60px] bg-blue-100 justify-center items-center" style={{backgroundImage:"url(../../cardBack2.jpg)"}}>
@@ -56,13 +57,14 @@ const Navbar = () => {
                         <p className="text-2xl">|</p>
                         <Link className="text-black text-xl link" href="/"><h3 className="link">Főoldal</h3></Link> 
                         <p className="text-2xl">|</p>
-                        <Link className="text-black text-xl link" href="/createCharacter"><h3 className="link">Karakter Készítés</h3></Link>
-                        <p className="text-2xl">|</p>
+                        {isAdmin && <Link className="text-black text-xl link"  href="/createCharacter"><h3 className="link">Karakter Készítés</h3></Link>}
+                        {isAdmin && <p className="text-2xl">|</p>}
                         <Link onClick={()=>{setShowAdminLogin(!showAdminLogin)}} className="text-black text-xl link" href=""><h3 className="link">Admin Pass</h3></Link>
+                            
                         <p className="text-2xl">|</p>
                         <Link className="link text-black text-xl" href={""} onClick={()=>revalidateMainPage()}><h3 className="link">Refresh DB</h3></Link>
                         <p className="text-2xl">|</p>
-                        {isAdmin ? <p className=" text-sm link bg-green-500 bg-opacity-10 rounded-md">Admin</p> : <p className="text-sm link bg-green-500 bg-opacity-10 rounded-md ">Guest</p> }
+                        {isAdmin ? <p className=" text-sm link bg-green-500 bg-opacity-10 rounded-md font-bold tracking-widest">ADMIN</p> : <p className="tracking-widest font-bold text-sm link bg-green-500 bg-opacity-10 rounded-md ">GUEST</p> }
 
                     </div>
 
