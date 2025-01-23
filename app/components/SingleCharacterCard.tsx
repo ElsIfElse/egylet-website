@@ -20,6 +20,12 @@ const SingleCharacterCard:React.FC<CharacterCardProps> = ({characterId,character
 
     const deleteTheCharacter = async(id:string) => {
         try {
+            const isAdmin = localStorage.getItem('isAdmin')
+            if(!isAdmin){
+                alert("You are not admin")
+                return
+            }
+
             const res = await deleteCharacter(id)
             console.log(res)
             router.push("/deleted")
