@@ -53,7 +53,7 @@ const SingleCharacterCard:React.FC<CharacterCardProps> = ({characterId,character
             WebkitMaskImage: `radial-gradient(ellipse 90% 90% at 50% 50%, black 60%, transparent 100%)`,
             maskImage: `radial-gradient(ellipse 90% 90% at 50% 50%, black 60%, transparent 100%)`,
         }} 
-            className="border-slate-400 border w-[30%] p-6 h-[90%] flex items-center flex-1 flex-col gap-12 outline-none bg-cover bg-center bg-no-repeat rounded-lg shadow-2xl
+            className="border-slate-400 border w-[720px] p-6 h-[1010px] flex items-center flex-1 flex-col gap-12 outline-none bg-cover bg-center bg-no-repeat rounded-lg shadow-2xl
             ">
 
             <motion.div 

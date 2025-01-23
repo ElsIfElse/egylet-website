@@ -56,11 +56,14 @@ const Navbar = () => {
                         <p className="text-2xl">|</p>
                         <Link className="text-black text-xl link" href="/"><h3 className="link">Főoldal</h3></Link> 
                         <p className="text-2xl">|</p>
+                        <Link className="text-black text-xl link" href="/players"><h3 className="link">Játékosok</h3></Link> 
+                        <p className="text-2xl">|</p>
+                        <Link className="text-black text-xl link" href="/about"><h3 className="link">Rólunk</h3></Link> 
+                        <p className="text-2xl">|</p>
+                        { !isAdmin && <Link onClick={()=>{setShowAdminLogin(!showAdminLogin)}} className="text-black text-xl link" href=""><h3 className="link">Admin Pass</h3></Link>}
+                        { !isAdmin && <p className="text-2xl">|</p>}
                         {isAdmin && <Link className="text-black text-xl link"  href="/createCharacter"><h3 className="link">Karakter Készítés</h3></Link>}
                         {isAdmin && <p className="text-2xl">|</p>}
-                        <Link onClick={()=>{setShowAdminLogin(!showAdminLogin)}} className="text-black text-xl link" href=""><h3 className="link">Admin Pass</h3></Link>
-                            
-                        <p className="text-2xl">|</p>
                         {isAdmin && <Link className="link text-black text-xl" href={""} onClick={()=>revalidateMainPage()}><h3 className="link">Refresh DB</h3></Link>}
                         {isAdmin && <p className="text-2xl">|</p>}
                     </div>

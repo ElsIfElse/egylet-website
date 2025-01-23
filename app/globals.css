@@ -56,9 +56,11 @@ button{
 .link{
   @apply hover:text-opacity-60 transition-all duration-200 hover:-translate-y-[1px] py-1 px-2
 }
-
 .hero{
   @apply mb-12
+}
+.social-logo{
+  @apply hover:cursor-pointer hover:scale-[245%] transition-all duration-300 scale-[220%]
 }
 
 
