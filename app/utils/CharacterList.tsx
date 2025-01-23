@@ -17,7 +17,7 @@ const delayNum:number = 0
        <>
             {characters && typeof characters === "object" && characters.length > 0 ?  characters.map((character:Character,index:number) => (
                 <div key={character._id}>
-                    {delayNum+0.2}
+                    {index = delayNum+0.2}
                     <CharacterCard 
                     characterName={character.characterName} 
                     characterImage={character.characterImage} 

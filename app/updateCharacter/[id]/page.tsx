@@ -9,8 +9,10 @@ import { motion } from "motion/react";
 import Hero from "../../components/Hero";
 import { useParams, useRouter } from "next/navigation";
 import sendUpdateDataToServer from "./sendUpdateDataToServer";
+import { useUpdateRedirectState } from "@/app/zustandStores/updateRedirectState";
 
 export const dynamicParams = true;
+
 
 const CreateCharacterPage = () => {
 
@@ -56,6 +58,8 @@ const CreateCharacterPage = () => {
     const [characterImagePreview, setCharacterImagePreview] = useState<string>("");
     const [characterId, setCharacterId] = useState<string>("");
 
+    const setPathId = useUpdateRedirectState((state) => state.setPathId);
+
     const fileInputRef = useRef<HTMLInputElement>(null);
 
 
@@ -74,11 +78,15 @@ const CreateCharacterPage = () => {
         _id: characterId
     }
     const router = useRouter();
-    const sendDataToServer = async function(){
+    const sendDataToServer = async function() {
         try {
-            const res = await sendUpdateDataToServer(payload)
-            router.push("/updated")               
-            console.log(res)
+            const res:string | unknown = await sendUpdateDataToServer(payload)
+            console.log('res is: ' + res)
+            if(typeof res === "string"){
+                setPathId(res)
+            }
+            console.log("Character updated");
+            router.push(`/updated`)
             
         } catch (error) {
             console.log(error)

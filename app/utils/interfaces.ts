@@ -6,3 +6,12 @@ export interface Character{
     characterRace:string
     characterAdditionInfo:string
 }
+
+export interface UpdateReturn{
+    data:UpdateCharacterRes
+}
+
+export interface UpdateCharacterRes{
+    data:Character
+    msg:string
+}
