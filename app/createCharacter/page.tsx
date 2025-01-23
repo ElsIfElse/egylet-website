@@ -136,11 +136,11 @@ const CreateCharacterPage = () => {
         <div className="flex flex-col items-center py-12 max-w-[1920px] w-full  h-full overflow-hidden">
             <Hero text="Karakter Készítés" />
             
-            <div className="flex flex-row p-12 gap-[200px] w-[1120px]">
+            <div className="flex flex-row p-12 gap-[200px] w-[1100px]">
                 <motion.div 
                 animate={{ opacity: [0, 0.3 ,1],translateY:[-10,0,0] }}
                 transition={{ duration: 0.6,delay:0.1 }}
-                className="w-1/2 flex flex-col gap-12">
+                className="w-[550px] flex flex-col gap-12">
                     <div className="flex flex-col gap-1">
                         <label htmlFor="characterName">Karakter név</label>
                         <input onChange={(e)=>setCharacterName(e.target.value)} type="text" name="characterName" id="characterName" />
@@ -171,7 +171,7 @@ const CreateCharacterPage = () => {
                 style={{
                     
                 }}
-                className="w-1/2 gap-8 flex flex-col">
+                className="w-[550px] gap-8 flex flex-col">
                     <div className="flex flex-col gap-4 h-[600px] overflow-hidden">
                         <Image 
                          src={characterImagePreview} 

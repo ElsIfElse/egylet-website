@@ -64,7 +64,9 @@ const Navbar = () => {
                         <p className="text-2xl">|</p>
                         <Link className="link text-black text-xl" href={""} onClick={()=>revalidateMainPage()}><h3 className="link">Refresh DB</h3></Link>
                         <p className="text-2xl">|</p>
-                        {isAdmin ? <p className=" text-sm link bg-green-500 bg-opacity-10 rounded-md font-bold tracking-widest">ADMIN</p> : <p className="tracking-widest font-bold text-sm link bg-green-500 bg-opacity-10 rounded-md ">GUEST</p> }
+                        {isAdmin ?  
+                        <p className=" text-sm rounded-md font-bold tracking-widest transition-all duration-0 hover:shadow-none hover:bg-opacity-100 hover:-translate-y-0 hover:-rotate-0">ADMIN</p> : 
+                        <p className=" text-sm rounded-md font-bold tracking-widest transition-all duration-0 hover:shadow-none hover:bg-opacity-100 hover:-translate-y-0 hover:-rotate-0">GUEST</p> }
 
                     </div>
 

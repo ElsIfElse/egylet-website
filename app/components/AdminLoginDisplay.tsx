@@ -36,18 +36,18 @@ const AdminLoginDisplay:React.FC<AdminLoginDisplayProps> = ({toggleAdminLogin}) 
     return ( 
         <>
             <Dialog className="flex flex-col" open={true}>
-                <DialogTitle>Admin felület</DialogTitle>
-                <DialogContentText className="px-6">
+                <DialogTitle style={{fontFamily:'SourcePro'}}>Admin felület</DialogTitle>
+                <DialogContentText style={{fontFamily:'SourcePro'}} className="px-6 ">
                         Add meg a jelszót az admin jogokhoz.
                 </DialogContentText>
 
 
                 <DialogContent className="flex flex-row gap-4">
                      <input onChange={(e)=>setPwInput(e.target.value)} className="p-2 shadow-xl border-b border-b-slate-400 border-t border-t-slate-200 border-x border-x-slate-100" type="password" />
-                     <button onClick={()=>handleSubmit(pwInpout)}>Belépés</button>
+                     <button style={{fontFamily:'SourcePro'}} onClick={()=>handleSubmit(pwInpout)}>Belépés</button>
                      <button className="scale-75 absolute top-0 right-0" onClick={toggleAdminLogin}><LucideX/></button>
                 </DialogContent>
-                <DialogContentText style={{color:"red",fontWeight:"bold"}} className=" px-6 pb-6">
+                <DialogContentText style={{color:"red",fontWeight:"bold",fontFamily:'SourcePro'}} className=" px-6 pb-6">
                         {message}
                 </DialogContentText>
             </Dialog> 

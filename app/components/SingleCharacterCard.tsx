@@ -77,14 +77,14 @@ const SingleCharacterCard:React.FC<CharacterCardProps> = ({characterId,character
             <motion.div 
                         animate={{ opacity: [0, 0.3 ,1],translateY:[-10,0,0] }}
                         transition={{ duration: 0.6,delay:0.8 }}
-            className="flex flex-col gap-4 justify-center items-start w-[400px]">
+            className="flex flex-col gap-4 justify-center items-start w-[600px]">
                 <h2 className="text-3xl hover:bg-blend-lighten">{characterName}</h2>
                     <div className="flex flex-col gap-8">
-                        <div className="flex flex-col"> 
-                            <h3>Character Faj: {characterRace}</h3>
-                            <h3>Character Kaszt: {characterClass}</h3>
+                        <div className="flex flex-col w-[400px]"> 
+                            <h3 className="">Character Faj: {characterRace}</h3>
+                            <h3 className="">Character Kaszt: {characterClass}</h3>
                         </div>
-                        <div className="flex flex-col gap-2 h-[200px]">
+                        <div className="flex flex-col gap-2 h-[200px] w-[600px] overflow-auto">
                             <p>{characterAdditionInfo}</p>
                         </div>                        
                     </div>
