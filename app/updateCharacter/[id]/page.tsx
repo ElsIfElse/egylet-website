@@ -77,7 +77,7 @@ const CreateCharacterPage = () => {
     const sendDataToServer = async function(){
         try {
             const res = await sendUpdateDataToServer(payload)
-            router.push("/updated")
+            router.push("/updated")               
             console.log(res)
             
         } catch (error) {
