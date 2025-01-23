@@ -1,6 +1,5 @@
 'use client'
 
-
  import CharacterCard from "../components/CharacterCard";
 import { Character } from "./interfaces";
 
@@ -25,7 +24,12 @@ const delayNum:number = 0
                     characterRace={character.characterRace} 
                     delayNumber={index}/>
                 </div>
-            )):<h1 className="text-3xl self-center">Az adatbázis üres. Hozz létre egy karaktert!</h1>}
+            )):
+            <div className="flex flex-col justify-start items-start w-full mt-12 gap-4">
+                <h1 className="text-2xl w-auto">Az adatbázis üres. </h1>
+                <h2>Hozz létre egy karaktert!</h2>
+            </div>
+            }
        </>
      );
 }

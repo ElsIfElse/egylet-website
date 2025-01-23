@@ -25,7 +25,6 @@ const CharacterCard:React.FC<CharacterCardProps> = ({characterName, characterIma
         whileHover={{ rotateZ: 1,transition:{duration:0.2,delay:0}}}
         className=""  
         >
-
             <Link 
         style={{
             backgroundImage:"url(../../cardBack2.jpg)",

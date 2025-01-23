@@ -19,6 +19,7 @@ const SingleCharacterCard:React.FC<CharacterCardProps> = ({characterId,character
     const router = useRouter();
 
     const deleteTheCharacter = async(id:string) => {
+        console.log(id)
         try {
             const isAdmin = localStorage.getItem('isAdmin')
             if(!isAdmin){
@@ -81,8 +82,8 @@ const SingleCharacterCard:React.FC<CharacterCardProps> = ({characterId,character
                 <h2 className="text-3xl hover:bg-blend-lighten">{characterName}</h2>
                     <div className="flex flex-col gap-8">
                         <div className="flex flex-col w-[400px]"> 
-                            <h3 className="">Character Faj: {characterRace}</h3>
-                            <h3 className="">Character Kaszt: {characterClass}</h3>
+                            <h3 className="">Karakter Faj: {characterRace}</h3>
+                            <h3 className="">Karakter Kaszt: {characterClass}</h3>
                         </div>
                         <div className="flex flex-col gap-2 h-[200px] w-[600px] overflow-auto">
                             <p>{characterAdditionInfo}</p>
@@ -91,16 +92,16 @@ const SingleCharacterCard:React.FC<CharacterCardProps> = ({characterId,character
             </motion.div>
                     <div className="flex flex-col gap-4">
 
-            <motion.button 
+            {localStorage.getItem('isAdmin') ? <motion.button 
                 animate={{ opacity: [0, 0.3 ,1] }}
                 transition={{ duration: 0.6,delay:1 }}
                 onClick={() => updateCharacter(characterName)}>Karakter Módosítasa
-            </motion.button>
-            <motion.button 
+            </motion.button> : null}
+            {localStorage.getItem('isAdmin') ?<motion.button 
                 animate={{ opacity: [0, 0.3 ,1] }}
                 transition={{ duration: 0.6,delay:1 }}
                 onClick={() => deleteTheCharacter(characterId)}>Karakter Törlése
-            </motion.button>                        
+            </motion.button> : null}                       
                     </div>
         </motion.div>
      );

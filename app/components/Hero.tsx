@@ -13,7 +13,7 @@ const Hero:React.FC<HeroProps> = ({text}) => {
 
     return ( 
         <motion.div   
-        className="flex justify-center items-center h-[80px] gap-4 hero">      
+        className="flex justify-center items-center h-[80px] gap-6 hero">      
         <motion.div
         style={{borderRadius: 100}} 
         animate={{translateY:[-200,0] }}
@@ -50,7 +50,7 @@ const Hero:React.FC<HeroProps> = ({text}) => {
             type: "spring",
             delay:0.1
         }}
-          className="flex items-center justify-center">{text}</motion.h1>
+          className="flex tracking-tight items-center justify-center">{text}</motion.h1>
       </motion.div>
      );
 }

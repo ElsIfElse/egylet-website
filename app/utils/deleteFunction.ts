@@ -2,9 +2,9 @@
 
 import { revalidatePath } from "next/cache";
 
-export async function deleteCharacterServer(name: string) {
+export async function deleteCharacterServer(id: string) {
     // Make the delete request
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}deleteCharacter/${name}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}deleteCharacter/${id}`, {
         method: "DELETE",
     });
 

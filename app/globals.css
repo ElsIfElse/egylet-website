@@ -23,7 +23,7 @@ h1,h2,h3,h4,link,p,label,input,textarea{
 }
 
 h1{
-  @apply text-4xl tracking-tight
+  @apply text-3xl tracking-tight
 }
 h2{
   @apply text-2xl
