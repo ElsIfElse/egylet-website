@@ -100,7 +100,7 @@ const Navbar = () => {
                         {showAdminLogin && <AdminLoginDisplay toggleAdminLogin={toggleAdminLogin}/>}
                     </div>
                 </div>) : (
-                    <div className="pt-3">
+                    <div className="pt-3 justify-center items-center flex-col">
                         <SecondaryNavbar toggleAdminLogin={()=>toggleAdminLogin()}/> 
                         {showAdminLogin && <AdminLoginDisplay toggleAdminLogin={toggleAdminLogin}/>}
                     </div>)

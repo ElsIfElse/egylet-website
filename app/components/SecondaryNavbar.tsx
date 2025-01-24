@@ -14,6 +14,7 @@ import { checkAdmin } from '../utils/CheckAdmin';
 import { useEffect,useState } from 'react';
 import revalidateMainPage from '../utils/revalidateMain';
 import { Divider } from '@mui/material';
+import { LucideSquareMenu } from 'lucide-react';
 
 
 export default function SecondaryNavbar({toggleAdminLogin}:{toggleAdminLogin: () => void}): React.JSX.Element{
@@ -35,11 +36,11 @@ export default function SecondaryNavbar({toggleAdminLogin}:{toggleAdminLogin: ()
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
-
+ 
   const router = useRouter();
 
   const DrawerList = (
-    <Box sx={{ width: 250,backgroundColor: '#3e4d39',border:0, outline:0, padding:0 }} role="menubar" onClick={toggleDrawer(false)}>
+    <Box sx={{ width: "100%",backgroundColor: '#3e4d39',border:0, outline:0, padding:0 }} role="navigation" onClick={toggleDrawer(false)}>
       <List sx={{border:0, outline:0, padding:0,backgroundColor: '#3e4d39',}}>
         <ListItem>
             <ListItemButton>
@@ -82,8 +83,8 @@ export default function SecondaryNavbar({toggleAdminLogin}:{toggleAdminLogin: ()
 
   return (
     <div>
-      <Button style={{color:'#7f8430',backgroundColor:'#3e4d39',padding:3, fontFamily:"SourcePro"}} onClick={toggleDrawer(true)}>| | |</Button>
-      <Drawer open={open} onClose={toggleDrawer(false)}>
+      <Button size='large' style={{color:'#7f8430',padding:3, fontFamily:"SourcePro",boxShadow:"none"}} onClick={toggleDrawer(true)}><LucideSquareMenu size={30} /></Button>
+      <Drawer anchor='top' className='w-full flex flex-col justify-center items-center' open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
       </Drawer>
     </div>

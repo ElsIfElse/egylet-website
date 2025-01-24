@@ -138,7 +138,7 @@ const CreateCharacterPage = () => {
         <div className="flex flex-col items-center justify-center
         py-6 lg:py-12 max-w-[1920px] 
         w-100vw lg:100vw  2xl:gap-12
-        h-100vh overflow-hidden max-h-[1000px]">
+        h-100vh overflow-hidden ">
             <Hero text="Karakter Módosítása" />
             
             <div className="flex 
@@ -187,11 +187,11 @@ const CreateCharacterPage = () => {
                     backgroundRepeat: "no-repeat",
                 }}
                 className="
-                pt-10 px-8
+                pt-10 px-8 pb-10 h-auto 
                 max-w-[550px] lg:max-w-[800px] lg:max-h-[800px]
                 lg:w-[550px]
                 lg:gap-8 flex flex-col">
-                    <div className="flex flex-col justify-start items-center
+                    <div className="flex flex-col justify-start items-center pb-12
                     gap-4 lg:gap-4 
                     lg:h-[500px] overflow-hidden
                     

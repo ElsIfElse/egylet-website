@@ -136,7 +136,7 @@ const CreateCharacterPage = () => {
         <div className="flex flex-col items-center justify-center
         py-6 lg:py-12 max-w-[1920px] 
         w-100vw lg:100vw  2xl:gap-12
-        h-100vh overflow-hidden max-h-[1000px]">
+        h-100vh overflow-hidden h-auto">
             <Hero text="Karakter Készítés" />
             
             <div className="flex 
