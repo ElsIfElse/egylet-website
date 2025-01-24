@@ -135,27 +135,38 @@ const CreateCharacterPage = () => {
       }, [characterImage]);
 
     return ( 
-        <div className="flex flex-col items-center py-12 max-w-[1920px] w-full  h-full overflow-hidden">
+        <div className="flex flex-col items-center justify-center
+        py-6 lg:py-12 max-w-[1920px] 
+        w-100vw lg:100vw  2xl:gap-12
+        h-100vh overflow-hidden max-h-[1000px]">
             <Hero text="Karakter Módosítása" />
             
-            <div className="flex flex-row p-12 gap-[200px] w-[1120px]">
+            <div className="flex 
+            flex-col 2xl:flex-row
+            items-center 2xl:items-center 2xl:justify-center
+            px-4 2xl:p-12 2xl:h-[700px]
+            gap-12 2xl:gap-[200px] 
+            w-[100%] lg:w-[1100px]
+            lg:max-h-[800px]">
                 <motion.div 
                 animate={{ opacity: [0, 0.3 ,1],translateY:[-10,0,0] }}
                 transition={{ duration: 0.6,delay:0.1 }}
-                className="w-1/2 flex flex-col gap-12">
-                    <div className="flex flex-col gap-1 h-auto">
+                className="
+                w-full lg:w-[full] max-w-[900px] 2xl:w-[550px] flex flex-col items-center 2xl:justify-start
+                gap-4 2xl:gap-8 lg:max-h-[800px]">
+                    <div className="flex flex-col gap-1 w-[90%] items-center xl:items-start">
                         <label htmlFor="characterName">Karakter név</label>
                         <input value={characterName} onChange={(e)=>setCharacterName(e.target.value)} type="text" name="characterName" id="characterName" />
                     </div>
-                    <div className="flex flex-col gap-1 h-auto">
+                    <div className="flex flex-col gap-1 w-[90%] items-center xl:items-start">
                         <label htmlFor="characterClass">Karakter Kaszt</label>
                         <input value={characterClass} onChange={(e)=>setCharacterClass(e.target.value)} type="text" name="characterClass" id="characterClass" />
                     </div>
-                    <div className="flex flex-col gap-1 h-auto">
+                    <div className="flex flex-col gap-1 w-[90%] items-center xl:items-start">
                         <label htmlFor="characterRace">Karakter Faj</label>
                         <input value={characterRace} onChange={(e)=>setCharacterRace(e.target.value)} type="text" name="characterRace" id="characterRace" />
                     </div>
-                    <div className="flex flex-col gap-1">
+                    <div className="flex flex-col gap-1 w-[90%] items-center xl:items-start">
                         <label htmlFor="characterAdditionInfo">Karakter Leírás</label>
                         <textarea value={characterAdditionInfo} onChange={(e)=>setCharacterAdditionInfo(e.target.value)} name="characterAdditionInfo" id="characterAdditionInfo" className="h-[200px] resize-none"/>
                     </div>
@@ -164,30 +175,54 @@ const CreateCharacterPage = () => {
                     <motion.button 
                     onClick={clickingImageUpload}><Upload/>Képfeltöltés</motion.button>
                     <motion.button 
-                    onClick={()=>{sendDataToServer()}} className="w-[300px]">Karakter mentése</motion.button>
+                    onClick={()=>{sendDataToServer()}} className="
+                    2xl:w-[300px] text-center">Karakter mentése</motion.button>
                 </motion.div>
 
                 <motion.div 
                 animate={{ opacity: [0, 0.3 ,1],translateY:[-10,0,0] }}
                 transition={{ duration: 0.6,delay:0.4 }}
-                className="w-1/2 gap-8 flex flex-col">
-                    <div className="flex flex-col gap-4 h-[auto] overflow-hidden">
+                style={{
+                    backgroundImage:"url(../../cardBack2.jpg)",
+                    backgroundRepeat: "no-repeat",
+                }}
+                className="
+                pt-10 px-8
+                max-w-[550px] lg:max-w-[800px] lg:max-h-[800px]
+                lg:w-[550px]
+                lg:gap-8 flex flex-col">
+                    <div className="flex flex-col justify-start items-center
+                    gap-4 lg:gap-4 
+                    lg:h-[500px] overflow-hidden
+                    
+                    ">
                         <Image 
                         src={characterImagePreview} 
                         alt="https://pics.craiyon.com/2024-09-14/7JN82izCQ8KkGotJ9diblw.webp" 
                         width={600} 
                         height={400}
-                        className="rounded-lg"
+                        className="rounded-lg  "
+                        style={{ 
+                            objectFit: "cover",
+                            objectPosition: "top",
+                            WebkitMaskImage: `radial-gradient(ellipse 70% 70% at 50% 50%, black 60%, transparent 100%)`,
+                            maskImage: `radial-gradient(ellipse 50% 52% at 50% 50%, black 50%, transparent 100%)`
+                        }}
                         />
                         <h2>{characterName}</h2>
                     </div>
-                    <div className="flex flex-col gap-8">
-                        <div className="flex flex-col gap-1">
-                            <h3>{characterClass}</h3>
-                            <h3>{characterRace}</h3>
+                    <div className="flex flex-col
+                    gap-8 2xl:gap-8 lg:pb-10 lg:h-[200px]
+                    
+                    ">
+                        <div className="flex flex-col 2xl:justify-center items-center
+                        gap-1">
+                            <h3 className="max-h-[10px]">{characterClass}</h3>
+                            <h3 className="max-h-[10px]">{characterRace}</h3>
                         </div>
-                        <p className="h-[250px] overflow-auto">{characterAdditionInfo}</p>
-                    </div>               
+                        <p className="
+                        h-[120px] 2xl:h-[250px] overflow-auto">{characterAdditionInfo}</p>
+                    </div>                              
                     
                     
                 </motion.div>

@@ -6,7 +6,7 @@ import { faTiktok,faFacebook,faInstagram,faYoutube,faTwitch } from '@fortawesome
 const SocialPart = () => {
 
     return ( 
-            <div className='flex flex-row justify-center items-center gap-16 w-[720px] h-[60px]'>
+            <div className='flex flex-row justify-center items-center gap-16 w-full h-[3px]'>
                 <FontAwesomeIcon onClick={()=>window.open('https://www.tiktok.com/@egyletofficial')} className='social-logo' color='black' icon={faTiktok} />
                 <FontAwesomeIcon onClick={()=>window.open('https://www.facebook.com/search/top?q=az%20egylet')} className='social-logo' color='black' icon={faFacebook} />
                 <FontAwesomeIcon onClick={()=>window.open('https://www.instagram.com/egyletstream/')} className='social-logo' color='black' icon={faInstagram} />

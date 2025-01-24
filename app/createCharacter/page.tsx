@@ -133,46 +133,68 @@ const CreateCharacterPage = () => {
       }, [characterImage]);
 
     return ( 
-        <div className="flex flex-col items-center py-12 max-w-[1920px] w-full  h-full overflow-hidden">
+        <div className="flex flex-col items-center justify-center
+        py-6 lg:py-12 max-w-[1920px] 
+        w-100vw lg:100vw  2xl:gap-12
+        h-100vh overflow-hidden max-h-[1000px]">
             <Hero text="Karakter Készítés" />
             
-            <div className="flex flex-row p-12 gap-[200px] w-[1100px]">
+            <div className="flex 
+            flex-col 2xl:flex-row
+            items-center 2xl:items-center 2xl:justify-center
+            px-4 2xl:p-12 2xl:h-[700px]
+            gap-12 2xl:gap-[200px] 
+            w-[100%] lg:w-[1100px]"> 
+
                 <motion.div 
                 animate={{ opacity: [0, 0.3 ,1],translateY:[-10,0,0] }}
                 transition={{ duration: 0.6,delay:0.1 }}
-                className="w-[550px] flex flex-col gap-12">
-                    <div className="flex flex-col gap-1">
+                className="
+                w-full lg:w-[full] max-w-[900px] 2xl:w-[550px] flex flex-col items-center 2xl:justify-start
+                gap-4 2xl:gap-8">
+                    <div className="flex flex-col gap-1 w-[90%] items-center xl:items-start">
                         <label htmlFor="characterName">Karakter név</label>
-                        <input onChange={(e)=>setCharacterName(e.target.value)} type="text" name="characterName" id="characterName" />
+                        <input className="" onChange={(e)=>setCharacterName(e.target.value)} type="text" name="characterName" id="characterName" />
                     </div>
-                    <div className="flex flex-col gap-1">
+                    <div className="flex flex-col gap-1 w-[90%] items-center xl:items-start">
                         <label htmlFor="characterClass">Karakter Kaszt</label>
-                        <input onChange={(e)=>setCharacterClass(e.target.value)} type="text" name="characterClass" id="characterClass" />
+                        <input className="" onChange={(e)=>setCharacterClass(e.target.value)} type="text" name="characterClass" id="characterClass" />
                     </div>
-                    <div className="flex flex-col gap-1">
+                    <div className="flex flex-col gap-1 w-[90%] items-center xl:items-start">
                         <label htmlFor="characterRace">Karakter Faj</label>
-                        <input onChange={(e)=>setCharacterRace(e.target.value)} type="text" name="characterRace" id="characterRace" />
+                        <input className="" onChange={(e)=>setCharacterRace(e.target.value)} type="text" name="characterRace" id="characterRace" />
                     </div>
-                    <div className="flex flex-col gap-1">
+                    <div className="flex flex-col gap-1 w-[90%] items-center xl:items-start">
                         <label htmlFor="characterAdditionInfo">Karakter Leírás</label>
-                        <textarea onChange={(e)=>setCharacterAdditionInfo(e.target.value)} name="characterAdditionInfo" id="characterAdditionInfo" className="h-[200px] resize-none"/>
+                        <textarea onChange={(e)=>setCharacterAdditionInfo(e.target.value)} name="characterAdditionInfo" id="characterAdditionInfo" className="
+                        h-[100px] lg:h-[200px] resize-none"/>
                     </div>
 
                     <input ref={fileInputRef} accept="image/*" onChange={(e)=>handleImageChange(e)} type="file" className="hidden"/>
-                    <motion.button 
+                    <motion.button className="text-center" 
                     onClick={clickingImageUpload}><Upload/>Képfeltöltés</motion.button>
                     <motion.button 
-                    onClick={()=>{sendDataToServer()}} className="w-[300px]">Karakter mentése</motion.button>
+                    onClick={()=>{sendDataToServer()}} className="
+                    lg:w-[300px] text-center">Karakter mentése</motion.button>
                 </motion.div>
 
                 <motion.div 
                 animate={{ opacity: [0, 0.3 ,1],translateY:[-10,0,0] }}
                 transition={{ duration: 0.6,delay:0.4 }}
                 style={{
-                    
+                    backgroundImage:"url(../../cardBack2.jpg)",
+                    backgroundRepeat: "no-repeat",
                 }}
-                className="w-[550px] gap-8 flex flex-col">
-                    <div className="flex flex-col gap-4 h-[600px] overflow-hidden">
+                className="
+                pt-10 px-8
+                max-w-[550px] lg:max-w-[800px] 
+                lg:w-[550px]
+                lg:gap-8 flex flex-col">
+                    <div className="flex flex-col justify-start items-center
+                    gap-4 lg:gap-4 
+                    lg:h-[500px] overflow-hidden
+                    
+                    ">
                         <Image 
                          src={characterImagePreview} 
                         alt="https://pics.craiyon.com/2024-09-14/7JN82izCQ8KkGotJ9diblw.webp" 
@@ -188,12 +210,17 @@ const CreateCharacterPage = () => {
                         />
                         <h2>{characterName}</h2>
                     </div>
-                    <div className="flex flex-col gap-8">
-                        <div className="flex flex-col gap-1">
+                    <div className="flex flex-col 
+                    gap-8 2xl:gap-8
+                    
+                    ">
+                        <div className="flex flex-col 2xl:justify-center items-center
+                        gap-1">
                             <h3>{characterClass}</h3>
                             <h3>{characterRace}</h3>
                         </div>
-                        <p className="h-[250px] overflow-auto">{characterAdditionInfo}</p>
+                        <p className="
+                        h-[120px] 2xl:h-[250px] overflow-auto">{characterAdditionInfo}</p>
                     </div>                            
                 </motion.div>
             </div>

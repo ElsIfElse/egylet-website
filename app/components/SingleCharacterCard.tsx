@@ -53,7 +53,12 @@ const SingleCharacterCard:React.FC<CharacterCardProps> = ({characterId,character
             WebkitMaskImage: `radial-gradient(ellipse 90% 90% at 50% 50%, black 60%, transparent 100%)`,
             maskImage: `radial-gradient(ellipse 90% 90% at 50% 50%, black 60%, transparent 100%)`,
         }} 
-            className="border-slate-400 border w-[720px] p-6 h-[1010px] flex items-center flex-1 flex-col gap-12 outline-none bg-cover bg-center bg-no-repeat rounded-lg shadow-2xl
+            className="border-slate-400 border 
+            w-auto lg:w-[720px] 
+            p-6 lg:p-6   
+            h-vh lg:h-[1010px] flex items-center flex-1 flex-col 
+            gap-6 lg:gap-12 
+            outline-none bg-cover bg-center bg-no-repeat rounded-lg shadow-2xl
             ">
 
             <motion.div 
@@ -63,8 +68,11 @@ const SingleCharacterCard:React.FC<CharacterCardProps> = ({characterId,character
             }}
             animate={{ opacity: [0, 0.3 ,1],translateY:[-10,0,0] }}
             transition={{ duration: 0.6,delay:0.2 }}
-            className="flex justify-center w-[495px] h-[415px] flex-row shadow-2xl
-            transition-all duration-300                          
+            className="flex justify-center 
+            w-[200px] lg:w-[495px] 
+            h-auto lg:h-[415px] 
+            flex-row shadow-2xl
+            transition-all duration-300                       
             ">
                 <Image className="rounded-lg"
                 style={{ objectPosition: "top",
@@ -78,14 +86,21 @@ const SingleCharacterCard:React.FC<CharacterCardProps> = ({characterId,character
             <motion.div 
                         animate={{ opacity: [0, 0.3 ,1],translateY:[-10,0,0] }}
                         transition={{ duration: 0.6,delay:0.8 }}
-            className="flex flex-col gap-4 justify-center items-start w-[600px]">
-                <h2 className="text-3xl hover:bg-blend-lighten">{characterName}</h2>
+            className="flex flex-col 
+            gap-1 lg:gap-4 justify-center items-start
+            w-full lg:w-[600px]">
+                <h2 className="
+                lg:text-3xl hover:bg-blend-lighten">{characterName}</h2>
                     <div className="flex flex-col gap-8">
-                        <div className="flex flex-col w-[400px]"> 
+                        <div className="flex flex-col 
+                        w-[200px] lg:w-[400px]"> 
                             <h3 className="">Karakter Faj: {characterRace}</h3>
                             <h3 className="">Karakter Kaszt: {characterClass}</h3>
                         </div>
-                        <div className="flex flex-col gap-2 h-[200px] w-[600px] overflow-auto">
+                        <div className="flex flex-col 
+                        lg:gap-2 
+                        h-[100px] lg:h-[200px] 
+                        lg:w-[600px] overflow-auto">
                             <p>{characterAdditionInfo}</p>
                         </div>                        
                     </div>

@@ -13,7 +13,9 @@ const Hero:React.FC<HeroProps> = ({text}) => {
 
     return ( 
         <motion.div   
-        className="flex justify-center items-center h-[80px] gap-6 hero">      
+        className="flex justify-center items-center 
+        h-[80px] 
+        gap-6 hero">      
         <motion.div
         style={{borderRadius: 100}} 
         animate={{translateY:[-200,0] }}
@@ -26,7 +28,10 @@ const Hero:React.FC<HeroProps> = ({text}) => {
             type: "spring"         
         }}
 
-        className="h-[100px] w-[100px] flex flex-row justify-center items-center overflow-hidden rounded-full">
+        className="
+        h-[80px] lg:h-[100px] 
+        w-[80px] lg:w-[100px] 
+        flex flex-row justify-center items-center overflow-hidden rounded-full">
             <Image 
             className="overflow-hidden h-full w-full object-cover rounded-full" 
             objectFit="cover" 
