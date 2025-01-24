@@ -9,7 +9,7 @@ interface CharacterListProps {
 
 const CharacterList:React.FC<CharacterListProps> =  ({characters}) => {
 
-const delayNum:number = 0
+
 
 
     return ( 
@@ -18,9 +18,9 @@ const delayNum:number = 0
                 <div
                 className="" 
                 key={character._id}>
-                    {index = delayNum+0.2}
+                    
                     <CharacterCard 
-                    characterName={character.characterName} 
+                    characterName={character.characterName}  
                     characterImage={character.characterImage} 
                     characterClass={character.characterClass} 
                     characterRace={character.characterRace} 
